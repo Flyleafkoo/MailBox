@@ -5,10 +5,11 @@ import schedule
 from schedule import every, repeat
 
 
-@repeat(every(360).seconds)
+@repeat(every(10).seconds)
 def get_attachment():
     with MailBox(accaunt_login, accaunt_password) as attach:
         attach.get_attachment_from_unread()
+        return attach.get_attachment_from_unread()
 
 
 while True:

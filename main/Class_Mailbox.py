@@ -6,6 +6,7 @@ from email.header import decode_header
 
 
 class MailBox:
+    filenames = []
 
     def __init__(self, user, password):
         self.user = user
@@ -60,3 +61,6 @@ class MailBox:
                         if not os.path.isfile(filepath):
                             fp = open(filepath, 'wb')
                             fp.write(part.get_payload(decode=True))
+                            self.filenames.append(filepath)
+        return self.filenames
+
