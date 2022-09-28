@@ -8,8 +8,8 @@ bot = telebot.TeleBot(token)
 @bot.message_handler(commands=['start'])  # keyboard
 def start_message(message):
     markup = telebot.types.InlineKeyboardMarkup()
-    markup.add(telebot.types.InlineKeyboardButton(text='Заявление справка 2-НДФЛ', callback_data=1))
-    bot.send_message(message.chat.id, text='Выберите заявление', reply_markup=markup)
+    markup.add(telebot.types.InlineKeyboardButton(text='Прислать письма', callback_data=1))
+    bot.send_message(message.chat.id, text=None, reply_markup=markup)
 
 
 @bot.callback_query_handler(func=lambda call: True)
