@@ -6,7 +6,6 @@ from email.header import decode_header
 
 
 class MailBox:
-    filenames = []
 
     def __init__(self, user, password):
         self.user = user
@@ -33,6 +32,8 @@ class MailBox:
             return email_message
 
     def get_attachment_from_unread(self):
+        filenames = []
+
         self.imap.list()
         self.imap.select('Inbox')
         types, data = self.imap.uid('search', None, "UNSEEN")
@@ -43,6 +44,7 @@ class MailBox:
             email_message = email.message_from_string(raw_email_string)
 
             for part in email_message.walk():
+
                 if part.get_content_maintype() == "multipart":
                     continue
 
@@ -61,6 +63,5 @@ class MailBox:
                         if not os.path.isfile(filepath):
                             fp = open(filepath, 'wb')
                             fp.write(part.get_payload(decode=True))
-                            self.filenames.append(filepath)
-        return self.filenames
-
+                            filenames.append(filepath)
+        return filenames

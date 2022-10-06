@@ -8,10 +8,12 @@ from schedule import every, repeat
 @repeat(every(10).seconds)
 def get_attachment():
     with MailBox(accaunt_login, accaunt_password) as attach:
-        attach.get_attachment_from_unread()
-        return attach.get_attachment_from_unread()
-
+        list_filenames = attach.get_attachment_from_unread()
+        return list_filenames
 
 while True:
     schedule.run_pending()
     time.sleep(1)
+
+
+
