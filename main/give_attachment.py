@@ -11,9 +11,7 @@ def get_attachment():
         list_filenames = attach.get_attachment_from_unread()
         return list_filenames
 
+
 while True:
     schedule.run_pending()
     time.sleep(1)
-
-
-

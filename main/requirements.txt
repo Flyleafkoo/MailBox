@@ -3,3 +3,4 @@ email~=6.0.0.a1
 telebot~=0.0.4
 pyTelegramBotApi
 PymuPDF
+fitz

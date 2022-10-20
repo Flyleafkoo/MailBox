@@ -14,5 +14,4 @@ def start_message(message):
         bot.send_photo(message.chat.id, send_file)
 
 
-
 bot.polling()
