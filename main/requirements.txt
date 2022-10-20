@@ -4,3 +4,4 @@ telebot~=0.0.4
 pyTelegramBotApi
 PymuPDF
 fitz
+PyPDF2
